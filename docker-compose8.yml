@@ -1,0 +1,32 @@
+version : '3.0'
+services :
+
+  employeeService:
+    build: 
+      context: ./springComplete
+    image: springcomplete_img 
+    container_name : employee_api
+    ports: 
+      - 8080:8080
+    networks:
+      - front_end
+      - back_end
+
+  databaseservice:
+    image: mysql:5.6
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: ems
+    volumes:
+        -  mysql_vol2:/var/lib/mysql
+        - ./mysqlProj:/docker-entrypoint-initdb.d
+    networks:
+      - back_end
+
+volumes: 
+  mysql_vol2:
+
+networks :
+  front_end:
+  back_end:

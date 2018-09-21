@@ -1,0 +1,28 @@
+version : '3.0'
+services :
+  demo1:
+    image: alpine
+    container_name: container1
+    command: sleep 1h
+    networks:
+      - front_end
+  demo2:
+    image: alpine 
+    container_name : container2
+    command: sleep 1h
+    networks:
+      - front_end
+      - back_end
+  mysql:
+    image: mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD : test
+    volumes:
+      - mysql_vol:/var/lib/mysql
+    networks:
+      - back_end
+volumes: 
+  mysql_vol:
+networks :
+  front_end:
+  back_end:

@@ -1,0 +1,6 @@
+version: '3.0'
+services: 
+  mysql34:
+    image: mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD : test

@@ -1,0 +1,11 @@
+version : '3.0'
+services :
+  demo1:
+    image: alpine
+    container_name: democt1
+    command: sleep 1h
+  demo2:
+    image: alpine
+    container_name: democt2
+    command: sleep 1h  
+

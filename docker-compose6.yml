@@ -1,0 +1,17 @@
+version : '3.0'
+services :
+  demo1:
+    image: alpine
+    container_name: container1
+    command: sleep 1h
+    networks:
+       - net1
+  demo2:
+    image: alpine 
+    container_name : container2
+    command: sleep 1h
+    networks:
+       - net1
+networks :
+  net1:
+    driver: bridge
